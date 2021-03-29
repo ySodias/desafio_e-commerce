@@ -29,14 +29,14 @@ public class Produto {
 	@NotNull
 	private String urlImagem;
 	
-	@ManyToOne
+	/*@ManyToOne
 	@JsonIgnoreProperties("produto")
 	private Usuario usuario;;
 	
 	@ManyToOne
 	@JsonIgnoreProperties("produto")
-//	private Loja loja;
-
+	private Loja loja;
+	*/
 	public Long getId() {
 		return id;
 	}
