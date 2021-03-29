@@ -17,4 +17,6 @@ public interface UsuarioRepository extends JpaRepository<Usuario, Long>
 
 	@Query(value= "SELECT * FROM usuario WHERE usuario.nome = :nome", nativeQuery = true)
 	public List<Usuario>findAllUsuario(@Param("nome") String nome);
+	
+	
 }
