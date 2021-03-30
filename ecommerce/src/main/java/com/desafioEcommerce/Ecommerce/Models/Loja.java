@@ -4,9 +4,13 @@ import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
@@ -30,13 +34,18 @@ public class Loja {
 	@Size(min = 3, max = 100)
 	private String descricao;
 	
-  /*	@ManyToOne
+  	@ManyToOne
 	private Usuario usuario;
 	
-	@OneToMany(mappedBy="produto", cascade = CascadeType.ALL)
+	/*@OneToMany(mappedBy="produto", cascade = CascadeType.ALL)
 	@JsonIgnoreProperties("produto")
 	private List<Produto> produto;
-*/
+	*/
+	
+  	@ManyToMany(mappedBy = "lojasInscrita", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	private List<Usuario> usuariosInscritos;
+			
+
 	public Long getIdLoja() {
 		return idLoja;
 	}
@@ -61,14 +70,14 @@ public class Loja {
 		this.descricao = descricao;
 	}
 
-/*	 public Usuario getUsuario() {
+	 public Usuario getUsuario() {
 		return usuario;
 	}
 
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
 	}
-
+	/*
 	public List<Produto> getProduto() {
 		return produto;
 	}
@@ -76,6 +85,17 @@ public class Loja {
 	public void setProduto(List<Produto> produto) {
 		this.produto = produto;
 	}
+	*/
+
+	public List<Usuario> getUsuariosInscritos() {
+		return usuariosInscritos;
+	}
+
+	public void setUsuariosInscritos(List<Usuario> usuariosInscritos) {
+		this.usuariosInscritos = usuariosInscritos;
+	}
 	
-*/	
+
+	
+	
 }

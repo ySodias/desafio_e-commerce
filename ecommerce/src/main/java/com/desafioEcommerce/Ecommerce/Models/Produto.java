@@ -18,25 +18,26 @@ public class Produto {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
+
 	@NotNull
-	@Size(max= 100)
+	@Size(max = 100)
 	private String tituloProduto;
-	
+
 	@NotNull
 	private Float valor;
-	
-	@NotNull
+
 	private String urlImagem;
 	
-	/*@ManyToOne
-	@JsonIgnoreProperties("produto")
-	private Usuario usuario;;
 	
+
 	@ManyToOne
 	@JsonIgnoreProperties("produto")
-	private Loja loja;
-	*/
+	private Usuario usuario;;
+
+	@ManyToOne
+	@JsonIgnoreProperties("produto")
+//	private Loja loja;
+	
 	public Long getId() {
 		return id;
 	}
@@ -68,8 +69,13 @@ public class Produto {
 	public void setUrlImagem(String urlImagem) {
 		this.urlImagem = urlImagem;
 	}
-	
-	
-	
-	
+
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
+
 }

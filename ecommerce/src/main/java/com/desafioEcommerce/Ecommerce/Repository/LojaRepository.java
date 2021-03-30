@@ -12,8 +12,8 @@ public interface LojaRepository extends JpaRepository<Loja,Long> {
 	public List<Loja> findAllByNomeLojaContainingIgnoreCase(String nomeLoja);
 	public List<Loja> findAllByDescricao(String descricao);
 	
-	@Query(value = "SELECT * FROM Loja WHERE nomeLoja LIKE A% ", nativeQuery = true)
-	public List<Loja> findByNomeLojaA(@Param("nome") String nomeLoja);
+	@Query(value = "SELECT * FROM Loja WHERE loja.nome_Loja LIKE CONCAT('%',:nomeLoja,'%') ", nativeQuery = true)
+	public List<Loja> findByNomeStartingWithA(@Param("nomeLoja") String nomeLoja);
 	
 
 }

@@ -34,7 +34,7 @@ public class LojaController {
 			return (ResponseEntity<List<Loja>>) service.pegarTodos();
 	}
 	
-	@GetMapping("nome/{nome}")
+	@GetMapping("nome/{nomeLoja}")
 	public ResponseEntity<List<Loja>> pegarPorNome(@PathVariable String nomeLoja){
 		return (ResponseEntity<List<Loja>>) service.pegarLojaPorNome(nomeLoja);
 	}
@@ -43,14 +43,14 @@ public class LojaController {
 	public ResponseEntity<List<Loja>> pegarPorDescriacao(@PathVariable String descricao){
 		return (ResponseEntity<List<Loja>>) service.pegarPorDescricao(descricao);
 	}
-	@GetMapping("id/{id}")
+	@GetMapping("id/{idLoja}")
 	public ResponseEntity<Loja> pegarPorId(@PathVariable Long idLoja){
 		return service.pegarPorId(idLoja);
 	}
 	
 	@GetMapping("nomelojacomA/{nomeLoja}")
 	public ResponseEntity<List<Loja>> pegarLojaComA (@PathVariable String nomeLoja){
-		return ResponseEntity.ok(repository.findByNomeLojaA(nomeLoja));
+		return ResponseEntity.ok(repository.findByNomeStartingWithA(nomeLoja));
 	}
 	
 	@PostMapping
