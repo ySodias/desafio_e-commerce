@@ -26,7 +26,6 @@ public class Produto {
 	@NotNull
 	private Float valor;
 
-	@NotNull
 	private String urlImagem;
 
 	@ManyToOne
