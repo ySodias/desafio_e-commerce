@@ -27,6 +27,8 @@ public class Produto {
 	private Float valor;
 
 	private String urlImagem;
+	
+	
 
 	@ManyToOne
 	@JsonIgnoreProperties("produto")
@@ -35,7 +37,7 @@ public class Produto {
 	@ManyToOne
 	@JsonIgnoreProperties("produto")
 //	private Loja loja;
-
+	
 	public Long getId() {
 		return id;
 	}

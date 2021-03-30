@@ -1,10 +1,18 @@
 
 package com.desafioEcommerce.Ecommerce.Models;
 
+
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.Size;
@@ -31,7 +39,16 @@ public class Usuario {
 	@NotNull
 	@Size(min=6, max=12)
 	private String senha;
-
+	
+	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@JoinTable(
+		name = "inscricao",
+		joinColumns = @JoinColumn(name = "fk_idUsuario"),
+		inverseJoinColumns = @JoinColumn(name = "fk_idLoja"))
+	private List<Loja> lojasInscrita;	
+	
+	
+	
 	public Long getId() {
 		return id;
 	}
@@ -63,4 +80,15 @@ public class Usuario {
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
+
+	public List<Loja> getLojasInscrita() {
+		return lojasInscrita;
+	}
+
+	public void setLojasInscrita(List<Loja> lojasInscrita) {
+		this.lojasInscrita = lojasInscrita;
+	}
+
+
+	
 }
