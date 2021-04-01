@@ -36,7 +36,7 @@ public class UsuarioController {
 	public ResponseEntity<Usuario> getByIdUsuario(@PathVariable Long id){
 		return serviceUsuario.findAllByIdUsuario(id);
 	}
-	@GetMapping
+	@GetMapping("/nome/{nome}")
 	public ResponseEntity<List<Usuario>> getByNomeUsuario(@PathVariable String nome){
 		return serviceUsuario.findAllUsuarioByNome(nome);
 	}
