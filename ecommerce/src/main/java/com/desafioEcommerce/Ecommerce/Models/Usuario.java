@@ -1,8 +1,8 @@
-
 package com.desafioEcommerce.Ecommerce.Models;
 
 
 import java.util.List;
+
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
